@@ -4,9 +4,10 @@ import os
 from PIL import Image
 from enum import IntEnum
 import sys
+import math
 
 BASE_DIR = os.getcwd()
-_SAVE_PATH = f'{BASE_DIR}/data/cropped_images'
+_SAVE_PATH = f'{BASE_DIR}\\data\\cropped_images'
 
 class Pos(IntEnum):
     LEFT = 0
@@ -82,7 +83,30 @@ def begin_cropping():
 
     return
 
+def find_minimum_res():
+    
+    min_res = [100000,100000]
+    name = ""
+    
+    for im in os.listdir(_SAVE_PATH):
+        try:
+            image = Image.open(f'{_SAVE_PATH}\\{im}')
+            w,h = image.size
+            
+            if w == 5 and h == 2:
+                os.remove(f'{_SAVE_PATH}\\{im}')
+
+            if math.sqrt(w **2 + h **2) < math.sqrt(min_res[0]**2 + min_res[1]**2):
+                name = im
+                min_res = [w,h]
+        except Exception as e:
+            print(e)
+    
+    return min_res, name
+
 if __name__ == "__main__":
-    print("beginning")
+    '''print("beginning")
     begin_cropping()
-    print("done")
+    print("done")'''
+    
+    print(find_minimum_res())
