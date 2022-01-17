@@ -8,7 +8,7 @@ At the end of the day, I'm just a curious learner trying to challenge myself in 
 1. Dataset Generation and Processing
 2. Model Training and Optimization (and re-training, and re-training, and re-training, ......)
 3. Application UX and Deployment
-4. Web3 and Beyond? `:eyes:`
+4. Web3 and Beyond? 
 
 ## December 23rd 2021
 The day it all began! I decided to begin generating my dataset using the [Google Images Scraper](https://github.com/ohyicong/Google-Image-Scraper). I played around with different keywords until I realized that I would actually fare better scraping [Etsy marketplace results](https://www.etsy.com/ca/search?q=chibi%20emote). You can check out my implementation [here](https://github.com/mariavmihu/emote-me/blob/main/webscrapers/EtsyScraper.py)!
@@ -27,7 +27,7 @@ The first iteration of training and optimizing! I implemented a basic DCGAN simi
 The outputs are very noisy, but if you look deeper it's crazy how face-like the outputs are starting to look!
 
 ## January 10th 2022 - Present
-I am currently working on playing around with some basic parameters and changes to the models before I move on to greater structural changes. The images are looking much less noisy, but now they are slightly less human-looking. More updates incoming as I polish things up `:wink:`. 
+I am currently working on playing around with some basic parameters and changes to the models before I move on to greater structural changes. The images are looking much less noisy, but now they are slightly less human-looking. More updates incoming as I polish things up ;) 
 
 ![noise example] (https://github.com/mariavmihu/emote-me/blob/main/src/images/jan10_sample1.jpg)
 ![noise example] (https://github.com/mariavmihu/emote-me/blob/main/src/images/jan10_sample2.jpg)
