@@ -128,7 +128,7 @@ if __name__ == "__main__":
             logger.log(d_error, g_error, epoch, n_batch, num_batches)
             # Display Progress every few batches
             if (n_batch) % 100 == 0: 
-                test_images = vectors_to_images(generator(test_noise))
+                test_images = vectors_to_images(generator(test_noise)) #this part should hopefully be fine because it's resizing ok?
                 test_images = test_images.data
                 logger.log_images(
                     test_images, num_test_samples, 

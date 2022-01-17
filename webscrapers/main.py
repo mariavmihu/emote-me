@@ -18,16 +18,23 @@ if __name__ == "__main__":
 
     #Add new search key into array 
     search_keys_google_images= [
+        'chibi girl',
+        'chibi girl cute',
+        'chibi girl small',
+        'chibi girl face',
+        'chibi girl simple',
         'chibi emote', 
         'chibi emote anime', 
         'chibi emote etsy', 
         'chibi twitch emote happy',
         'chibi twitch emote',
+        'hyanna natsu chibi', #name of a Chibi artist
         'hyanna natsu emote'
         ]
 
-    #Parameters
     number_of_images = 1000
+    
+    
     headless = False
     min_resolution=(0,0)
     max_resolution=(9999,9999)
