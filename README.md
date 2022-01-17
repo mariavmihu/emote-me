@@ -15,19 +15,19 @@ The day it all began! I decided to begin generating my dataset using the [Google
 
 The individual emote faces were labelled using [LabelImg](https://github.com/tzutalin/labelImg) and cropped using a custom python script until I had about 3,500 images to work with!
 
-![training set sample] (https://github.com/mariavmihu/emote-me/blob/main/src/images/training_sample_set.png)
+![alt text] (https://github.com/mariavmihu/emote-me/blob/main/src/images/training_sample_set.png "training set sample")
 
 ## January 7th 2022
 The first iteration of training and optimizing! I implemented a basic DCGAN similar to that in the official [Pytorch Tutorial](https://pytorch.org/tutorials/beginner/dcgan_faces_tutorial.html). The GAN started outputting complete and utter noise
 
-![noise example] (https://github.com/mariavmihu/emote-me/blob/main/src/images/jan7_noise.jpg)
-![first result example] (https://github.com/mariavmihu/emote-me/blob/main/src/images/jan7_sample1.jpg)
-![second result example] (https://github.com/mariavmihu/emote-me/blob/main/src/images/jan7_sample2.png)
+![alt text] (https://github.com/mariavmihu/emote-me/blob/main/src/images/jan7_noise.jpg "noise sample")
+![alt text] (https://github.com/mariavmihu/emote-me/blob/main/src/images/jan7_sample1.jpg "first sample")
+![alt text] (https://github.com/mariavmihu/emote-me/blob/main/src/images/jan7_sample2.png "second sample")
 
 The outputs are very noisy, but if you look deeper it's crazy how face-like the outputs are starting to look!
 
 ## January 10th 2022 - Present
 I am currently working on playing around with some basic parameters and changes to the models before I move on to greater structural changes. The images are looking much less noisy, but now they are slightly less human-looking. More updates incoming as I polish things up ;) 
 
-![noise example] (https://github.com/mariavmihu/emote-me/blob/main/src/images/jan10_sample1.jpg)
-![noise example] (https://github.com/mariavmihu/emote-me/blob/main/src/images/jan10_sample2.jpg)
+![alt text] (https://github.com/mariavmihu/emote-me/blob/main/src/images/jan10_sample1.jpg "first sample")
+![alt text] (https://github.com/mariavmihu/emote-me/blob/main/src/images/jan10_sample2.jpg "second sample")
