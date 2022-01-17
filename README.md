@@ -21,7 +21,9 @@ The individual emote faces were labelled using [LabelImg](https://github.com/tzu
 The first iteration of training and optimizing! I implemented a basic DCGAN similar to that in the official [Pytorch Tutorial](https://pytorch.org/tutorials/beginner/dcgan_faces_tutorial.html). The GAN started outputting complete and utter noise
 
 ![alt text] (https://github.com/mariavmihu/emote-me/blob/main/src/images/jan7_noise.jpg "noise sample")
+
 ![alt text] (https://github.com/mariavmihu/emote-me/blob/main/src/images/jan7_sample1.jpg "first sample")
+
 ![alt text] (https://github.com/mariavmihu/emote-me/blob/main/src/images/jan7_sample2.png "second sample")
 
 The outputs are very noisy, but if you look deeper it's crazy how face-like the outputs are starting to look!
