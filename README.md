@@ -15,7 +15,7 @@ The day it all began! I decided to begin generating my dataset using the [Google
 
 The individual emote faces were labelled using [LabelImg](https://github.com/tzutalin/labelImg) and cropped using a custom python script until I had about 3,500 images to work with!
 
-![alt text] (https://github.com/mariavmihu/emote-me/blob/main/src/images/training_sample_set.png "training set sample")
+![alt text] (/src/images/training_sample_set.png "training set sample")
 
 ## January 7th 2022
 The first iteration of training and optimizing! I implemented a basic DCGAN similar to that in the official [Pytorch Tutorial](https://pytorch.org/tutorials/beginner/dcgan_faces_tutorial.html). The GAN started outputting complete and utter noise
