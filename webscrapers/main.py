@@ -39,7 +39,6 @@ if __name__ == "__main__":
     min_resolution=(0,0)
     max_resolution=(9999,9999)
 
-    '''
     #Main program
     for search_key in search_keys_google_images:
         image_scraper = GoogleImageScraper(webdriver_path,image_path,search_key,number_of_images,headless,min_resolution,max_resolution)
@@ -48,7 +47,7 @@ if __name__ == "__main__":
     
     #Release resources    
     del image_scraper
-    '''
+    
     
     search_keys_etsy= [
         'chibi emotes'
@@ -58,7 +57,7 @@ if __name__ == "__main__":
     
     for search_key in search_keys_etsy:
         image_scraper = EtsyScraper(webdriver_path,image_path,search_key,headless,min_resolution,max_resolution,page_limit)
-        '''image_scraper.visit_search_pages()
+        image_scraper.visit_search_pages()
         listing_urls = image_scraper.find_listing_urls()
         
         #save the listing urls in case something goes wrong
@@ -66,7 +65,7 @@ if __name__ == "__main__":
         with open("DUMP_LISTINGS.txt", 'w') as f:
             f.write(str(listing_urls))
         f.close()
-        print("done saving to listings file")'''
+        print("done saving to listings file")
         
         image_urls = image_scraper.visit_listing_pages()
         image_scraper.save_images(image_urls)
