@@ -30,13 +30,13 @@ class DiscriminatorNet(torch.nn.Module):
         )
         self.hidden2 = nn.Sequential(
             nn.Conv2d(features*2, features*4, 4, 2, 1, bias=False),
-            nn.BatchNorm2d(features*2),
+            nn.BatchNorm2d(features*4),
             nn.LeakyReLU(0.2, inplace=True),
             nn.Dropout(0.2) #prevents overfitting ---> tutorial didnt have this, potential painpoint
         )
         self.hidden3 = nn.Sequential(
             nn.Conv2d(features*4, features*8, 4, 2, 1, bias=False),
-            nn.BatchNorm2d(features*2),
+            nn.BatchNorm2d(features*8),
             nn.LeakyReLU(0.2, inplace=True),
             nn.Dropout(0.2) #prevents overfitting ---> tutorial didnt have this, potential painpoint
         )        
@@ -46,7 +46,7 @@ class DiscriminatorNet(torch.nn.Module):
         )
 
     def forward(self, x): #this is basically passing the value through the structure of the network
-        x = self.hidden0(x) # x changes value with pass through the layers until it comes out the end
+        x = self.hidden0(x)
         x = self.hidden1(x)
         x = self.hidden2(x)
         x = self.hidden3(x)
@@ -61,13 +61,14 @@ class DiscriminatorNet(torch.nn.Module):
         # 1.1 Train on Real Data
         prediction_real = self.forward(real_data)
         # Calculate error and backpropagate
-        error_real = loss(prediction_real, ones_target(N) )
+        error_real = loss(prediction_real, ones_target(N, self.ngpu) )
         error_real.backward()
 
         # 1.2 Train on Fake Datas
+        fake_data.to("cpu")
         prediction_fake = self.forward(fake_data)
         # Calculate error and backpropagate
-        error_fake = loss(prediction_fake, zeros_target(N))
+        error_fake = loss(prediction_fake, zeros_target(N, self.ngpu))
         error_fake.backward()
         
         # 1.3 Update weights with gradients
@@ -84,6 +85,7 @@ class GeneratorNet(torch.nn.Module):
         super(GeneratorNet, self).__init__()
         
         self.ngpu = 1
+        self.device = torch.device("cuda:0" if (torch.cuda.is_available() and self.ngpu > 0) else "cpu")
         
         num_channels = 3    #always 3 channels because we are working with coloured images (RGB)
         latent_vector_size = 100 #called nz in the tutorial
@@ -99,18 +101,18 @@ class GeneratorNet(torch.nn.Module):
         
         self.hidden1 = nn.Sequential( 
             nn.ConvTranspose2d(features*8, features*4, 4, 2, 1, bias=False),
-            nn.BatchNorm2d(features * 8),
+            nn.BatchNorm2d(features * 4),
             nn.LeakyReLU(0.2, inplace=True)
         )
         self.hidden2 = nn.Sequential(
             nn.ConvTranspose2d(features*4, features*2, 4, 2, 1, bias=False),
-            nn.BatchNorm2d(features * 8),
+            nn.BatchNorm2d(features * 2),
             nn.LeakyReLU(0.2, inplace=True)
         )
         
         self.hidden3 = nn.Sequential(
             nn.ConvTranspose2d(features*2, features, 4, 2, 1, bias=False),
-            nn.BatchNorm2d(features * 8),
+            nn.BatchNorm2d(features),
             nn.LeakyReLU(0.2, inplace=True)
         )
         
@@ -134,7 +136,7 @@ class GeneratorNet(torch.nn.Module):
         # Sample noise and generate fake data
         prediction = discriminator(fake_data)
         # Calculate error and backpropagate
-        error = loss(prediction, ones_target(N))
+        error = loss(prediction, ones_target(N, self.ngpu))
         error.backward()
         # Update weights with gradients
         optimizer.step()
