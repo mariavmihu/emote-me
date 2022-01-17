@@ -20,7 +20,7 @@ The individual emote faces were labelled using [LabelImg](https://github.com/tzu
 ## January 7th 2022
 The first iteration of training and optimizing! I implemented a basic DCGAN similar to that in the official [Pytorch Tutorial](https://pytorch.org/tutorials/beginner/dcgan_faces_tutorial.html). The GAN started outputting complete and utter noise
 
-![alt text] (https://github.com/mariavmihu/emote-me/blob/main/src/images/jan7_noise.jpg)
+![alt text] (https://github.com/mariavmihu/emote-me/blob/main/src/images/jan7_noise.jpg?raw=true)
 
 ![alt text] (https://github.com/mariavmihu/emote-me/blob/main/src/images/jan7_sample1.jpg)
 
